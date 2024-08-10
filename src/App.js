@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import data from "./data.json";
+import Cart from "./Cart";
 import "./style.css";
 const App = () => {
    const card = data.map((el, index) => {
@@ -21,6 +22,7 @@ const App = () => {
             <h1>Deserts</h1>
             <div className="allCards">{card}</div>
          </section>
+         <Cart/>
       </div>
    );
 };
