@@ -1,17 +1,17 @@
 import React from "react";
 
-const CartItem = () => {
+const CartItem = (props) => {
    return (
       <div className="cartItems">
          <div className="cartDescription">
-            <h2>waffle cream</h2>
+            <h2>{props.name}</h2>
             <p>
-               <span>1x</span> @ $5.50 &nbsp;
-               <b>$5.50</b>
+               <span>{props.quantity}</span> @ ${props.price} &nbsp;
+               <b>${props.totalPrice}</b>
             </p>
          </div>
          <button className="remove">
-            <img src="/images/icon-remove-item.svg" alt="remove-from-cart" />
+            <img src="/images/icon-remove-item.svg" alt="remove-from-cart" onClick={props.deleteItem}/>
          </button>
       </div>
    );

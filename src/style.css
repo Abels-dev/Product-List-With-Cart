@@ -48,7 +48,7 @@ h1 {
    color: var(--Rose-900);
    margin-bottom: 20px;
 }
-.addCart {
+.addCart,.quantity{
    display: flex;
    width: 150px;
    border: 1px solid var(--Rose-300);
@@ -64,6 +64,21 @@ h1 {
    bottom: 85px;
    z-index: 99;
    background-color: var(--Rose-50);
+}
+.quantity{
+   background-color: var(--Red);
+   border: 0;
+   justify-content: space-around;
+   color: var(--Rose-50);
+}
+.quantity button{
+   width: 18px;
+   height: 18px;
+   border: 1px solid var(--Rose-100);
+   border-radius: 50%;
+   background-color: transparent;
+   display: grid;
+   place-content: center;
 }
 .product-Catagory {
    color: var(--Rose-400);
@@ -131,7 +146,7 @@ h1 {
 }
 .orderBtn {
    width: 100%;
-   padding: 18px;
+   padding: 15px;
    border-radius: 25px;
    border: 0;
    background-color: var(--Red);
@@ -150,7 +165,7 @@ h1 {
 }
 .cartDescription h2 {
    color: var(--Rose-900);
-   font-size: 17px;
+   font-size: 15px;
    text-transform: capitalize;
    font-weight: 600;
    margin-bottom: 10px;
