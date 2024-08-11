@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Card from "./Card";
 import data from "./data.json";
 import Cart from "./Cart";
+import Modal from "./Modal";
 import "./style.css";
 const App = () => {
    const [cartItems, setCartItmes] = useState([]);
    const [cartQuantity, setCartQuantity] = useState(0);
    const [totalOrder, setTotalOrder] = useState(0);
    const [cards, setCards] = useState([]);
+   const [orderConfirmed, setOrderConfirmed] = useState(false);
    React.useEffect(() => {
       setCards(
          data.map((item) => {
@@ -98,6 +100,7 @@ const App = () => {
                quantity: cards[index].quantity,
                price: cards[index].price,
                totalPrice: cards[index].price * cards[index].quantity,
+               thumbnail: cards[index].image.thumbnail,
             },
          ];
          manageCartItems(items);
@@ -108,7 +111,7 @@ const App = () => {
       setCards((prevCard) => {
          return prevCard.map((item, idx) => {
             if (item.name === cartItems[index].name)
-               return { ...item, isAdded: false };
+               return { ...item, isAdded: false, quantity: 1 };
             return item;
          });
       });
@@ -117,6 +120,21 @@ const App = () => {
          manageCartItems(items);
          return items;
       });
+   };
+   const confirmOrder = () => {
+      setOrderConfirmed(true);
+      document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+   };
+   const startNewOrder = () => {
+      setCartItmes([]);
+      setCards((prevCard) => {
+         return prevCard.map((item) => {
+            return { ...item, isAdded: false, quantity: 1 };
+         });
+      });
+      setOrderConfirmed(false)
+      setCartQuantity(0)
+      document.body.style.backgroundColor = "hsl(13, 31%, 94%)";
    };
    const card = cards.map((el, index) => {
       return (
@@ -137,15 +155,28 @@ const App = () => {
    return (
       <div className="container">
          <section>
-            <h1>Deserts</h1>
-            <div className="allCards">{card}</div>
+            <h1>Desserts</h1>
+            <div
+               className={`allCards ${orderConfirmed ? "modal-overlay" : ""}`}>
+               {card}
+            </div>
          </section>
-         <Cart
-            cartItems={cartItems}
-            totalQuantity={cartQuantity}
-            totalOrder={totalOrder}
-            handleDelete={handleDelete}
-         />
+         <div className={orderConfirmed ? "modal-overlay" : ""}>
+            <Cart
+               cartItems={cartItems}
+               totalQuantity={cartQuantity}
+               totalOrder={totalOrder}
+               handleDelete={handleDelete}
+               confirmOrder={() => confirmOrder()}
+            />
+         </div>
+         {orderConfirmed && (
+            <Modal
+               cartItems={cartItems}
+               totalOrder={totalOrder}
+               startNewOrder={() => startNewOrder()}
+            />
+         )}
       </div>
    );
 };

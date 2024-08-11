@@ -12,7 +12,7 @@ const Cart = (props) => {
       <div>
          <div className="totalPrice">
             <p>order Total</p>
-            <p className="totalOrder">{props.totalOrder}</p>
+            <p className="totalOrder">${props.totalOrder}</p>
          </div>
          <div className="carbonNeutral">
             <img src="/images/icon-carbon-neutral.svg" alt="icon" />
@@ -20,7 +20,7 @@ const Cart = (props) => {
                This is a <b>carbon-neutral</b> delivery
             </p>
          </div>
-         <button className="orderBtn">Confirm Order</button>
+         <button className="orderBtn" onClick={props.confirmOrder}>Confirm Order</button>
       </div>
    );
    React.useEffect(() => {
