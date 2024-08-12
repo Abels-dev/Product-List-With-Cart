@@ -123,7 +123,7 @@ const App = () => {
    };
    const confirmOrder = () => {
       setOrderConfirmed(true);
-      document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+      document.body.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
    };
    const startNewOrder = () => {
       setCartItmes([]);
@@ -139,12 +139,8 @@ const App = () => {
    const card = cards.map((el, index) => {
       return (
          <Card
-            productName={el.name}
-            category={el.category}
-            img={el.image.desktop}
-            price={el.price}
+            product={el}
             isAdded={el.isAdded}
-            quantity={el.quantity}
             key={index}
             addToCart={() => addToCart(index)}
             increaseQuantity={() => increaseQuantity(index)}
@@ -155,7 +151,7 @@ const App = () => {
    return (
       <div className="container">
          <section>
-            <h1>Desserts</h1>
+            <h1 className="dessert">Desserts</h1>
             <div
                className={`allCards ${orderConfirmed ? "modal-overlay" : ""}`}>
                {card}

@@ -1,9 +1,9 @@
 import React from "react";
 
 const Modal = (props) => {
-   const orderedItems=props.cartItems.map(item=>{
+   const orderedItems=props.cartItems.map((item,index)=>{
          return (
-            <div className="orders">
+            <div className="orders" key={index}>
                <div className="orderDescription">
                   <img
                      src={item.thumbnail}
