@@ -2,7 +2,7 @@
 
 This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d).
 
-![Design preview for the Interactive comments section coding challenge](../public/design/desktop-design.png)
+![Design preview for the Interactive comments section coding challenge](./public/design/desktop-design.png)
 
 ### The challenge
 
