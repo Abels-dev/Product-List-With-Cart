@@ -2,6 +2,8 @@
 
 This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d).
 
+![Design preview for the Interactive comments section coding challenge](/design/desktop-design.png)
+
 ### The challenge
 
 Users should be able to:
@@ -19,3 +21,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
+
+### Preview 
+
+- https://product-list-with-cart-omega.vercel.app/
