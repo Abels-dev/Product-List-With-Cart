@@ -142,9 +142,10 @@ const App = () => {
             product={el}
             isAdded={el.isAdded}
             key={index}
-            addToCart={() => addToCart(index)}
+            addToCart={orderConfirmed?null:() => addToCart(index)}
             increaseQuantity={() => increaseQuantity(index)}
             decreaseQuantity={() => decreaseQuantity(index)}
+            orderConfirmed={orderConfirmed}
          />
       );
    });
