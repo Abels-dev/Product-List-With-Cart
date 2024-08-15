@@ -20,8 +20,8 @@ const Card = (props) => {
    );
    return (
       <div className="card">
-         <img src={props.product.image.desktop} alt="food-img" className="foodImg desktop-image"/>
-         <img src={props.product.image.mobile} alt="food-img" className={`foodImg mobile-image ${props.isAdded?"mobile-image-select":""}`} />
+         <img src={props.product.image.desktop} alt="food-img" className={` foodImg desktop-image ${props.isAdded?"card-select":""}`}/>
+         <img src={props.product.image.mobile} alt="food-img" className={`foodImg mobile-image ${props.isAdded?"card-select":""}`} />
          {props.isAdded?orderedQuantity:addCart}
          <div className="description">
             <p className="product-Catagory">{props.product.category}</p>

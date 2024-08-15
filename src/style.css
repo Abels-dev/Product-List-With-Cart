@@ -285,6 +285,9 @@ h1 {
   z-index: 10;
   filter: brightness(0.7);
  }
+ .card-select{
+   border: 3px solid var(--Red);
+}
  @media screen and (max-width:500px){
      body{
        padding: 20px;
@@ -298,9 +301,6 @@ h1 {
       }
       .mobile-image{
          display: block;
-      }
-      .mobile-image-select{
-         border: 3px solid var(--Red);
       }
       .desktop-image{
          display: none;
