@@ -123,7 +123,6 @@ const App = () => {
    };
    const confirmOrder = () => {
       setOrderConfirmed(true);
-      document.body.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
    };
    const startNewOrder = () => {
       setCartItmes([]);
@@ -134,7 +133,6 @@ const App = () => {
       });
       setOrderConfirmed(false)
       setCartQuantity(0)
-      document.body.style.backgroundColor = "hsl(13, 31%, 94%)";
    };
    const card = cards.map((el, index) => {
       return (
@@ -154,11 +152,11 @@ const App = () => {
          <section>
             <h1 className="dessert">Desserts</h1>
             <div
-               className={`allCards ${orderConfirmed ? "modal-overlay" : ""}`}>
+               className="allCards">
                {card}
             </div>
          </section>
-         <div className={orderConfirmed ? "modal-overlay" : ""}>
+         <div>
             <Cart
                cartItems={cartItems}
                totalQuantity={cartQuantity}
