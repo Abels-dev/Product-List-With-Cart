@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import Modal from "./Modal";
 import "./style.css";
 const App = () => {
-   const [cartItems, setCartItmes] = useState([]);
+   const [cartItems, setCartItems] = useState([]);
    const [cartQuantity, setCartQuantity] = useState(0);
    const [totalOrder, setTotalOrder] = useState(0);
    const [cards, setCards] = useState([]);
@@ -37,7 +37,7 @@ const App = () => {
          });
 
          // After updating the cards, update the cart items
-         setCartItmes((prevCartItem) => {
+         setCartItems((prevCartItem) => {
             const items = prevCartItem.map((item) => {
                if (item.name === updatedCards[index].name) {
                   return {
@@ -66,7 +66,7 @@ const App = () => {
          });
 
          // After updating the cards, update the cart items
-         setCartItmes((prevCartItem) => {
+         setCartItems((prevCartItem) => {
             const items = prevCartItem.map((item) => {
                if (item.name === updatedCards[index].name) {
                   return {
@@ -92,7 +92,7 @@ const App = () => {
             return item;
          });
       });
-      setCartItmes((prevItems) => {
+      setCartItems((prevItems) => {
          const items = [
             ...prevItems,
             {
@@ -115,7 +115,7 @@ const App = () => {
             return item;
          });
       });
-      setCartItmes((prevItems) => {
+      setCartItems((prevItems) => {
          const items = prevItems.filter((el, idx) => index !== idx);
          manageCartItems(items);
          return items;
@@ -125,7 +125,7 @@ const App = () => {
       setOrderConfirmed(true);
    };
    const startNewOrder = () => {
-      setCartItmes([]);
+      setCartItems([]);
       setCards((prevCard) => {
          return prevCard.map((item) => {
             return { ...item, isAdded: false, quantity: 1 };
