@@ -1,11 +1,13 @@
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-const Modal = (props) => {
-   const orderedItems = props.cartItems.map((item, index) => {
+import { useGlobalContext } from "../context";
+
+const Modal = () => {
+   const { cartItem, totalOrder, startNewOrder } = useGlobalContext();
+   const orderedItems = cartItem.map((item, index) => {
       return (
          <div className="orders" key={index}>
             <div className="orderDescription">
-               <img src={item.thumbnail} alt="food-img" />
+               <img src={item.image.thumbnail} alt="food-img" />
                <div className="orderName">
                   <h2>{item.name}</h2>
                   <div>
@@ -13,12 +15,12 @@ const Modal = (props) => {
                   </div>
                </div>
             </div>
-            <p>${item.totalPrice}</p>
+            <p>{item.totalPrice}</p>
          </div>
       );
    });
    return (
-      <div className="modal-overlay">
+      <div className="modalOverlay">
          <AnimatePresence>
             <motion.div
                initial={{ scale: 0.5, opacity: 0 }}
@@ -37,10 +39,10 @@ const Modal = (props) => {
                   {orderedItems}
                   <div className="orderPrice">
                      <p>Order Total</p>
-                     <p className="totalOrder">${props.totalOrder}</p>
+                     <p className="totalOrder">{totalOrder}</p>
                   </div>
                </section>
-               <button className="new-order" onClick={props.startNewOrder}>
+               <button className="new-order" onClick={startNewOrder}>
                   Start New Order
                </button>
             </motion.div>
